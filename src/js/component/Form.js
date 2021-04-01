@@ -10,13 +10,15 @@ const Form = () => {
 	]);
 
 	const handleChange = e => setTodo({ [e.target.name]: e.target.value });
-	console.log(todo);
-	const handleClick = e => {
+	//console.log(todo);
+	const handleClick = () => {
 		if (Object.keys(todo).length === 0 || todo.todo.trim() === "") {
 			alert("el campo no puede estar vacio");
 			return;
 		}
+		//console.log(e);
 		setTodos([...todos, todo]);
+		document.getElementById("miForm").reset();
 	};
 
 	const deleteTodo = indice => {
@@ -27,7 +29,7 @@ const Form = () => {
 
 	return (
 		<>
-			<form onSubmit={e => e.preventDefault()}>
+			<form id="miForm" onSubmit={e => e.preventDefault()}>
 				<label>to-dos</label>
 				<br />
 				<input
